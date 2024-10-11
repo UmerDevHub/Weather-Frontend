@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0; /* Light background to contrast the main div */
+}
+
+.main-div {
+    background-color: lightblue;
+    height: 620px;
+    width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* To manage overflow with animations */
+    transition: transform 0.3s ease; /* Smooth transformation effect */
+}
+
+.main-div:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
+}
+
+h3 {
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 30px;
+    margin-bottom: 5px;
+    height: 50px;
+}
+
+input {
+    font-size: 18px;
+    width: 90%;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    height: 40px;
+    transition: box-shadow 0.3s ease; /* Smooth shadow effect */
+}
+
+input:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Focus effect for input */
+    outline: none; /* Remove default outline */
+}
+
+button {
+    background-color: white;
+    border: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Adding hover effects */
+}
+
+button:hover {
+    background-color: #f0e68c; /* Light yellow on hover */
+    transform: scale(1.1); /* Slight scale up */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+}
+
+button:active {
+    transform: scale(0.9); /* Scale down slightly on click */
+}
+
+i {
+    font-size: 16px;
+    color: blueviolet; /* Icon color */
+}
+
+#main-img {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+}
+
+.weather-img {
+    text-align: center;
+}
+
+.weather-temp {
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+}
+
+p {
+    font-size: 28px;
+    
+}
+h1{
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.footer {
+    margin-top: 75px;
+    margin-right: 20px;
+    margin-left: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-img {
+    height: 40px;
+    width: 40px;
+}
+
+.humidity,
+.wind {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 150px;
+    
+}
+
+.footer-data-one {
+    font-size: 22px;
+    margin-bottom: 7px;
+}
+
+.footer-data-two {
+    font-size: 16px;
+}
+
+.remove {
+    display: none;
+}
