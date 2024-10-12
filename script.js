@@ -1,6 +1,6 @@
 
 
-const key = "2819fc53b717ff3080ffb913229bcc36";
+#add your api key
 
 let url="https://api.openweathermap.org/data/2.5/weather?q=";
 
