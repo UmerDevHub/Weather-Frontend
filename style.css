@@ -9,7 +9,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f0f0f0; /* Light background to contrast the main div */
+    background-color: #f0f0f0;
 }
 
 .main-div {
@@ -18,12 +18,12 @@ body {
     width: 400px;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    overflow: hidden; /* To manage overflow with animations */
-    transition: transform 0.3s ease; /* Smooth transformation effect */
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
 .main-div:hover {
-    transform: translateY(-10px); /* Slight lift on hover */
+    transform: translateY(-10px);
 }
 
 h3 {
@@ -49,12 +49,12 @@ input {
     border-radius: 50px;
     padding: 10px 20px;
     height: 40px;
-    transition: box-shadow 0.3s ease; /* Smooth shadow effect */
+    transition: box-shadow 0.3s ease;
 }
 
 input:focus {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Focus effect for input */
-    outline: none; /* Remove default outline */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    outline: none;
 }
 
 button {
@@ -68,22 +68,22 @@ button {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Adding hover effects */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-    background-color: #f0e68c; /* Light yellow on hover */
-    transform: scale(1.1); /* Slight scale up */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+    background-color: #f0e68c;
+    transform: scale(1.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 button:active {
-    transform: scale(0.9); /* Scale down slightly on click */
+    transform: scale(0.9);
 }
 
 i {
     font-size: 16px;
-    color: blueviolet; /* Icon color */
+    color: blueviolet;
 }
 
 #main-img {
@@ -104,9 +104,9 @@ i {
 
 p {
     font-size: 28px;
-    
 }
-h1{
+
+h1 {
     color: white;
     text-align: center;
     margin-top: 10px;
@@ -133,7 +133,6 @@ h1{
     align-items: center;
     justify-content: space-around;
     width: 150px;
-    
 }
 
 .footer-data-one {
@@ -147,4 +146,84 @@ h1{
 
 .remove {
     display: none;
+}
+
+/* Responsive CSS */
+@media (max-width: 480px) {
+    .main-div {
+        width: 90vw;  /* use most of viewport width */
+        height: auto; /* let height adjust */
+        border-radius: 15px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        padding-bottom: 20px;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        margin-top: 20px;
+    }
+
+    .search-bar {
+        margin: 10px 15px;
+        height: 45px;
+    }
+
+    input {
+        font-size: 16px;
+        height: 35px;
+        padding: 8px 15px;
+        width: 85%;
+    }
+
+    button {
+        height: 35px;
+        width: 35px;
+        margin-left: 8px;
+    }
+
+    i {
+        font-size: 14px;
+    }
+
+    #main-img {
+        width: 150px;
+        height: 150px;
+        margin-top: 15px;
+    }
+
+    p {
+        font-size: 22px;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-top: 8px;
+    }
+
+    .footer {
+        margin-top: 40px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-img {
+        height: 30px;
+        width: 30px;
+    }
+
+    .humidity,
+    .wind {
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 30px;
+    }
+
+    .footer-data-one {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .footer-data-two {
+        font-size: 14px;
+    }
 }
