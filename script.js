@@ -1,8 +1,7 @@
 
+let key = "YOUR_API_KEY_HERE";
 
-#add your api key
-
-let url="https://api.openweathermap.org/data/2.5/weather?q=";
+let url = "https://api.openweathermap.org/data/2.5/weather?q=";
 
 let wholediv = document.querySelector(".main-div");
 
