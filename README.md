@@ -27,15 +27,32 @@
 ```bash
 # Clone the repo
 git clone https://github.com/UmerDevHub/Weather-Frontend.git
-
-# Open script.js and add your API key
-let key = "YOUR_API_KEY_HERE";
-
-# Open index.html in browser
-open index.html
+cd Weather-Frontend
+npm install
 ```
 
+1. Copy `.env.example` to `.env`
+2. Open `.env` and set your key:
+   ```env
+   OPENWEATHER_KEY=YOUR_API_KEY_HERE
+   ```
+3. Run the server:
+   ```bash
+   npm start
+   ```
+4. Open your browser at `http://localhost:3000`
+
+The app now uses `server.js` as a proxy so the OpenWeatherMap key stays in `.env` and is not committed to GitHub.
+
 Get a free API key at [openweathermap.org](https://openweathermap.org/api)
+
+---
+
+## Deployment Notes
+
+- GitHub Pages can only host static files.
+- To keep the API key secret, host this backend separately on a service like Render, Vercel, or Heroku.
+- If you do that, update the front-end to fetch from your deployed backend URL instead of the local proxy.
 
 ---
 
