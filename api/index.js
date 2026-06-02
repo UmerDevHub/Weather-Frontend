@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 require("dotenv").config();
 
 const app = express();
@@ -11,7 +12,7 @@ if (!API_KEY) {
 }
 
 app.use(cors());
-app.use(express.static("."));
+app.use(express.static(path.join(__dirname, "..")));
 
 app.get("/weather", async (req, res) => {
   const city = req.query.city;
