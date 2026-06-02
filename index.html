@@ -1,76 +1,171 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>SkyFlow — Premium Weather Dashboard</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
 
-    <div class="main-div">
-        <h1>Weather App</h1>
+    <!-- Premium Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fa-solid fa-cloud-sun-rain nav-logo-icon"></i>
+                <span class="brand-name">SkyFlow</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="https://openweathermap.org/api" target="_blank" class="nav-link"><i class="fa-solid fa-code"></i> API Info</a></li>
+                <li><a href="https://github.com/fassih058/Weather-Frontend" target="_blank" class="nav-link"><i class="fa-brands fa-github"></i> GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <div class="search-bar">
+    <!-- Main Content Container -->
+    <main class="main-content">
+        
+        <div class="main-div weather-clear" id="app-card">
+            
+            <!-- Header: Title & Unit Toggle -->
+            <header class="app-header">
+                <div class="card-title">
+                    <span>Local Forecast</span>
+                </div>
+                
+                <div class="unit-toggle-container">
+                    <span class="unit-label active" id="unit-c">°C</span>
+                    <label class="switch">
+                        <input type="checkbox" id="unit-checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="unit-label" id="unit-f">°F</span>
+                </div>
+            </header>
 
-            <input type="text" placeholder="Enter City name">
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            <!-- Search Bar with Geolocation Button -->
+            <div class="search-bar">
+                <button class="geo-btn" id="geo-btn" title="Use current location">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                </button>
+                <input type="text" id="city-input" placeholder="Search city name...">
+                <button class="search-btn" id="search-btn" title="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
 
+            <!-- Recent Searches Chip Container -->
+            <div class="recent-searches-container remove" id="recent-container">
+                <span class="recent-title">Recents:</span>
+                <div class="recent-chips" id="recent-chips">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <!-- Error Message -->
+            <h3 id="error-msg" class="remove">No City Found</h3>
+
+            <!-- Loading Spinner -->
+            <div class="loader-container remove" id="loader">
+                <div class="spinner"></div>
+            </div>
+
+            <!-- Main Weather Content -->
+            <div class="content-div remove" id="weather-content">
+
+                <!-- Main Temperature and Condition Card -->
+                <div class="hero-weather">
+                    <div class="weather-img">
+                        <img id="main-img" src="Images/clear.png" alt="Weather condition">
+                    </div>
+                    <div class="weather-temp">
+                        <p id="temp">22°C</p>
+                        <span id="description" class="weather-desc">Clear Sky</span>
+                        <h1 id="city">New York</h1>
+                    </div>
+                </div>
+        
+                <!-- Extended Metrics Grid (4 items) -->
+                <div class="metrics-grid">
+                    
+                    <!-- Humidity -->
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fa-solid fa-droplet text-blue"></i>
+                        </div>
+                        <div class="metric-info">
+                            <p class="metric-value" id="humidity">50 %</p>
+                            <p class="metric-label">Humidity</p>
+                        </div>
+                    </div>
+
+                    <!-- Wind Speed -->
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fa-solid fa-wind text-teal"></i>
+                        </div>
+                        <div class="metric-info">
+                            <p class="metric-value" id="wind">15 km/h</p>
+                            <p class="metric-label">Wind Speed</p>
+                        </div>
+                    </div>
+
+                    <!-- Feels Like -->
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fa-solid fa-temperature-half text-orange"></i>
+                        </div>
+                        <div class="metric-info">
+                            <p class="metric-value" id="feels-like">20°C</p>
+                            <p class="metric-label">Feels Like</p>
+                        </div>
+                    </div>
+
+                    <!-- Pressure -->
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fa-solid fa-gauge text-purple"></i>
+                        </div>
+                        <div class="metric-info">
+                            <p class="metric-value" id="pressure">1013 hPa</p>
+                            <p class="metric-label">Pressure</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- 5-Day Forecast Section -->
+                <div class="forecast-section">
+                    <h3 class="forecast-title">5-Day Forecast</h3>
+                    <div class="forecast-container" id="forecast-container">
+                        <!-- Dynamically populated forecast rows -->
+                    </div>
+                </div>
+        
+            </div>
 
         </div>
 
-        <h3>No Country Found</h3>
+    </main>
 
-        <div class="content-div">
-
-            <div class="weather-img">
-                <img id="main-img" src="Images/clear.png" alt="">
-            </div>
-    
-            <div class="weather-temp">
-                <p id="temp">22°C</p>
-                <h1 id="city">New York</h1>
-    
-            </div>
-    
-            <div class="footer">
-    
-    
-    
-                <div class="humidity">
-                    <div class="img">
-                        <img class="footer-img"  src="Images/humidity.png" alt="">
-                    </div>
-                    <div class="humidity-data">
-                        <p class="footer-data-one" id="humidity">50 %</p>
-                        <p class="footer-data-two">Humidity</p>
-                        
-                    </div>
-
-                </div>
-
-                <div class="wind">
-                    <div class="img">
-                        <img class="footer-img" src="Images/wind.png" alt="">
-                        <p class="footer-data-one" id="wind">15 km/h</p>
-                        <p class="footer-data-two">Wind Speed</p>
-                        
-                    </div>
-                </div>
-    
-    
-            </div>
-
-
+    <!-- Professional Page Footer -->
+    <footer class="page-footer">
+        <div class="footer-content">
+            <p>© 2026 SkyFlow Weather. Designed for developer portfolios & showcases.</p>
+            <p class="footer-attribution">
+                Data provided by <a href="https://openweathermap.org" target="_blank">OpenWeatherMap</a>. 
+                Hosted securely on <a href="https://vercel.com" target="_blank">Vercel</a>.
+            </p>
         </div>
-
-       
-
-
-    </div>
-<script src="script.js"></script>    
+    </footer>
+    
+    <script src="script.js"></script>    
 </body>
 </html>
