@@ -48,11 +48,16 @@ Get a free API key at [openweathermap.org](https://openweathermap.org/api)
 
 ---
 
-## Deployment Notes
+## 🌐 Deployment
 
-- GitHub Pages can only host static files.
-- To keep the API key secret, host this backend separately on a service like Render, Vercel, or Heroku.
-- If you do that, update the front-end to fetch from your deployed backend URL instead of the local proxy.
+Since this app uses an Express backend server (`server.js`) to securely proxy API requests (keeping your `OPENWEATHER_KEY` hidden from the client browser), it cannot be hosted on purely static platforms like GitHub Pages. Instead, host the entire project as a Node.js web service on **Railway** or **Render**.
+
+### Deploying on Railway / Render:
+1. Connect your GitHub repository to [Railway](https://railway.app) or [Render](https://render.com).
+2. Set the build command to `npm install` and the start command to `npm start`.
+3. Add the following environment variable in the dashboard settings:
+   - `OPENWEATHER_KEY` = *your OpenWeatherMap API key*
+4. Generate a public domain link in your service's networking/settings tab.
 
 ---
 
