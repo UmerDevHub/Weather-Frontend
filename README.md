@@ -1,81 +1,35 @@
 # 🌤️ Weather App
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![API](https://img.shields.io/badge/API-OpenWeatherMap-orange?style=flat-square)
-![Status](https://img.shields.io/badge/Status-Live-2ea44f?style=flat-square)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=flat-square&logo=javascript&logoColor=black)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=flat-square&logo=node.js&logoColor=white)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=flat-square&logo=vercel&logoColor=white)
 
-> Real-time weather app — search any city and get live temperature, humidity, wind speed, and weather icons instantly.
+An upgraded, real-time weather dashboard featuring a modern glassmorphism UI. It securely connects to the OpenWeatherMap API using a serverless backend proxy to keep API keys hidden from the client browser.
 
-🔗 **[Live Demo → umerdevhub.github.io/Weather-Frontend](https://umerdevhub.github.io/Weather-Frontend)**
+🔗 **Live Demo:** [weather-frontend-psi-fawn.vercel.app](https://weather-frontend-psi-fawn.vercel.app/)
 
 ---
 
 ## ✨ Features
 
-- Search weather by city name
-- Displays temperature (°C), humidity, wind speed, and weather condition
-- Dynamic weather icons based on current conditions
-- Responsive design — works on mobile and desktop
-- Live data from OpenWeatherMap API
+* 📍 **Auto-Geolocation:** Detects your current location instantly to show local weather conditions.
+* 🔍 **Global City Search:** Look up real-time weather conditions for any city globally.
+* 📊 **Detailed Weather Metrics:** View live temperature (°C), humidity levels, wind speed, and dynamic weather condition icons.
+* 📅 **Multi-Day Forecasts:** Built-in extended forecasts to plan your days ahead.
+* 💎 **Glassmorphism UI:** Clean, responsive, modern interface optimized for mobile and desktop screens.
+* 🔒 **Secure API Proxy:** Configured with serverless functions to keep the `OPENWEATHER_KEY` safely hidden in environment variables.
 
 ---
 
-## 🚀 Run Locally
+## 📂 Project Structure
 
-```bash
-# Clone the repo
-git clone https://github.com/UmerDevHub/Weather-Frontend.git
-cd Weather-Frontend
-npm install
-```
-
-1. Copy `.env.example` to `.env`
-2. Open `.env` and set your key:
-   ```env
-   OPENWEATHER_KEY=YOUR_API_KEY_HERE
-   ```
-3. Run the server:
-   ```bash
-   npm start
-   ```
-4. Open your browser at `http://localhost:3000`
-
-The app now uses `server.js` as a proxy so the OpenWeatherMap key stays in `.env` and is not committed to GitHub.
-
-Get a free API key at [openweathermap.org](https://openweathermap.org/api)
-
----
-
-## 🌐 Deployment
-
-Since this app uses an Express backend server (`server.js`) to securely proxy API requests (keeping your `OPENWEATHER_KEY` hidden from the client browser), it cannot be hosted on purely static platforms like GitHub Pages. Instead, host the entire project as a Node.js web service on **Railway** or **Render**.
-
-### Deploying on Railway / Render:
-1. Connect your GitHub repository to [Railway](https://railway.app) or [Render](https://render.com).
-2. Set the build command to `npm install` and the start command to `npm start`.
-3. Add the following environment variable in the dashboard settings:
-   - `OPENWEATHER_KEY` = *your OpenWeatherMap API key*
-4. Generate a public domain link in your service's networking/settings tab.
-
----
-
-## 📂 Structure
-
-```
+```text
 Weather-Frontend/
-├── index.html    ← Main HTML file
-├── style.css     ← Styling
-├── script.js     ← API calls and DOM logic
-└── Images/       ← Weather condition icons
-```
-
----
-
-## 🔧 Planned Improvements
-
-- [ ] 5-day forecast view
-- [ ] Geolocation — auto-detect user's city
-- [ ] Toggle °C / °F
-- [ ] Search history
+├── api/            ← Serverless function files for Vercel backend proxy
+├── Images/         ← Weather condition asset icons
+├── index.html      ← Main frontend view
+├── script.js       ← DOM logic, geolocation, and API communication
+├── style.css       ← Glassmorphism styling and layouts
+└── vercel.json     ← Routing configuration for serverless deployment
